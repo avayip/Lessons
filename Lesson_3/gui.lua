@@ -64,13 +64,13 @@ end
 
 function gui.Button:draw()
     if self.normalImage then
-		gfx.setColor(255,255,255,255)
+		gfx.setColor(self.imageColor and self.imageColor or {255,255,255,255})
         gfx.draw(self.normalImage,
             self.x, self.y,
             self.rotation,
             self.w/self.normalImage:getWidth(), self.h/self.normalImage:getHeight())
     end
-    if self.text then
+    if self.text and self.text ~= "" then
 		if self.color then
 			gfx.setColor(self.color)
 		end

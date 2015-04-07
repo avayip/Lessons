@@ -40,6 +40,9 @@ function calculatorButtonClicked(btn)
 	if btn.id == "C" then
 		-- C button is pressed, clear out the expression
 
+		-- ############# Solution 2 #############
+		expression = ""
+
 	elseif btn.id == "Ans" then
 		-- Ans button is pressed, add answer to expression
 		addToExpression("answer")
@@ -61,15 +64,19 @@ function calculatorButtonClicked(btn)
 		end
 
 		-- set clearExpression to true so we will clear out the expression
-		--clearExpression = true
+		-- ########## Solution 1, un-comment the line below ##########
+		clearExpression = true
 
-	elseif btn.id >= "0" and btn.id <= "5" then
+	-- ############# Solution 3, changed "5" to "9" below #############
+	elseif btn.id >= "0" and btn.id <= "9" then
 		-- one of the number key is pressed, add the key to expression
 		addToExpression(btn.id)
 
-	elseif btn.id == "+" or btn.id == "-" or btn.id == "*" or btn.id == "/" then
+	else
+		-- ############# Solution 4 #############
+		-- just add all button IDs to the expressin, +, -, *, (, ), etc.
+		-- we could also add the number keys too
 		addToExpression(btn.id)
-
 	end
 end
 
@@ -159,8 +166,6 @@ end
 
 1. Click the buttons 1 + 2 =
    Did you get the answer 3?
-   After you clicked the = button the math expression was not cleared, so any subsequence button
-   you click simply get appended to the end. That's not what we want. Can you fix it?
 
 2. If you made an mistake, you can use the C button to clear out the input.
    The C button does work as it supposed to. Please fix it.
