@@ -100,7 +100,7 @@ local function createCalculatorButtons(startX, startY)
 		for _, button in ipairs(row) do
 			local hspan = button.hspan or 1
 			local vspan = button.vspan or 1
-			if hspan >= 0 and vspan > 0 then
+			if hspan > 0 and vspan > 0 then
 				gui.newButton{
 					id = button.id or button.label,
 					text = button.label,
